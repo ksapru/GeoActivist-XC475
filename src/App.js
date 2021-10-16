@@ -20,10 +20,16 @@ import './components/Dropdown_issueType.js'
 import DropDown_issueType from './components/Dropdown_issueType';
 
 import ReactMapGL from 'react-map-gl'
+ 
+ 
 
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = 'pk.eyJ1IjoidHphbGl5YSIsImEiOiJja3VuMncxd3QzeHI3MnZtbmZyOTE0Z2RhIn0.wXgglO-cXtCIq-QJ17Jv-g';
+// eslint-disable-next-line no-undef
+// When active the map will receive updates to the device's location as it changes.
+   
 // import { useState } from 'react';
+
 
 function App() {
   // const [viewport,setViewPort] = useState({
@@ -47,9 +53,10 @@ function App() {
     container: mapContainer.current,
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [lng, lat],
-    zoom: zoom
+    zoom: zoom,
+    trackUserLocation: true,
     });
-    });
+    });  
 
     useEffect(() => {
       if (!map.current) return; // wait for map to initialize
@@ -67,9 +74,10 @@ function App() {
 
       <div className="SearchBar">
         <Searchbar ></Searchbar>
-        <DropDown_typeOfActivism></DropDown_typeOfActivism>
-        <DropDown_issueType></DropDown_issueType>
-        <SliderPage></SliderPage>
+        <DropDown_typeOfActivism/>
+        <DropDown_issueType/>
+        <SliderPage/>
+ 
       </div>
 
       {/* <div className="Map">
