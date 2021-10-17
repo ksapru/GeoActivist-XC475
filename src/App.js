@@ -55,6 +55,10 @@ function App() {
     center: [lng, lat],
     zoom: zoom,
     trackUserLocation: true,
+    enableHighAccuracy: true, 
+    trackUserLocation: true,
+    showUserHeading: true, 
+
     });
     });  
 
