@@ -1,11 +1,11 @@
 import React, { Component,useState } from "react";
 import ReactDOM from "react-dom";
 import makeAnimated from "react-select/animated";
-import { typeOfActivism } from "./data.js";
+import { issueTypes } from "./data.js";
 import MySelect from "./MySelect.js";
 import { components } from "react-select";
 
-export default function DropDown_typeOfActivism(){
+export default function DropDown_issueType(){
 
     const [optionSelected,setOption] = useState(null);
     const handleChange = (selected) => {
@@ -37,7 +37,7 @@ export default function DropDown_typeOfActivism(){
 
     return(
         <MySelect
-        options={typeOfActivism}
+        options={issueTypes}
         isMulti
         closeMenuOnSelect={false}
         hideSelectedOptions={false}
@@ -48,3 +48,4 @@ export default function DropDown_typeOfActivism(){
       />
     );
 }
+

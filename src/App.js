@@ -16,30 +16,54 @@ import SliderPage from './components/Slider'
 import './components/Dropdown_typeOfActivism.js'
 import DropDown_typeOfActivism from './components/Dropdown_typeOfActivism';
 
-import './components/Dropdown_issueType.js'
-import DropDown_issueType from './components/Dropdown_issueType';
-
 import ReactMapGL from 'react-map-gl'
 
+import './components/Dropdown_checkBox.js'
+import Example from './components/Dropdown_checkBox';
+
+import './components/MySelect.js'
+import MySelect from './components/MySelect.js';
+
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import DropDown_issueType from './components/Dropdown_checkBox.js';
 mapboxgl.accessToken = 'pk.eyJ1IjoidHphbGl5YSIsImEiOiJja3VuMncxd3QzeHI3MnZtbmZyOTE0Z2RhIn0.wXgglO-cXtCIq-QJ17Jv-g';
-// import { useState } from 'react';
+
 
 function App() {
-  // const [viewport,setViewPort] = useState({
-  //   latitude: 0.000,
-  //   longtitude: 0.000,
-  //   width: '100vw',
-  //   height: '100vh',
-  //   zoom:10
-
-  // })
 
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-71.1029);
   const [lat, setLat] = useState(42.3486);
   const [zoom, setZoom] = useState(15.48);
+
+  const geojson = {
+    type: 'FeatureCollection',
+    features: [
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-71.1029, 42.3486]
+        },
+        properties: {
+          title: 'Mapbox',
+          description: 'Washington, D.C.'
+        }
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-71.1029, 37.776]
+        },
+        properties: {
+          title: 'Mapbox',
+          description: 'San Francisco, California'
+        }
+      }
+    ]
+  };
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -59,6 +83,21 @@ function App() {
       setZoom(map.current.getZoom().toFixed(2));
       });
       });
+  
+  // geojson.features.map((features) =>
+  //     new mapboxgl.Marker().setLngLat(features.geometry.coordinates).addTo(map)
+  // );
+  // addControl(
+  //   new mapboxgl.GeolocateControl({
+  //   positionOptions: {
+  //   enableHighAccuracy: true
+  //   },
+  //   // When active the map will receive updates to the device's location as it changes.
+  //   trackUserLocation: true,
+  //   // Draw an arrow next to the location dot to indicate which direction the device is heading.
+  //   showUserHeading: true
+  //   })
+  //   );
 
   return (
     <div className="App">
@@ -69,37 +108,20 @@ function App() {
         <Searchbar ></Searchbar>
         <DropDown_typeOfActivism></DropDown_typeOfActivism>
         <DropDown_issueType></DropDown_issueType>
+        {/* <Dropdown_checkBox></Dropdown_checkBox> */}
         <SliderPage></SliderPage>
+        {/* <Example></Example> */}
       </div>
 
-      {/* <div className="Map">
-        <ReactMapGL {...viewport} 
-        mapboxApiAccessToken = {process.env.REACT_APP_MAPBOX_TOKEN } 
-        onViewportChange = { (viewport) => {
-          setViewPort(viewport);
-          }}
-        mapStyle="mapbox://styles/tzaliya/ckun43plxaorq19nyp63vqsxu" 
-        >
-          markers here
-        </ReactMapGL>
-
-        <div className="sidebar">
-          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div>
-
-      </div> */}
       <div className="Map">
-
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
       <div ref={mapContainer} className="map-container" />
-
       </div>
       
 
     </div>
   );
 }
-
 export default App;
