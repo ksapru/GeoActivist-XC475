@@ -16,7 +16,7 @@ import SliderPage from './components/Slider'
 import './components/Dropdown_typeOfActivism.js'
 import DropDown_typeOfActivism from './components/Dropdown_typeOfActivism';
 
-import ReactMapGL, { Marker } from 'react-map-gl'
+import ReactMapGL, { Marker,Layer, Feature } from 'react-map-gl'
 
 import './components/Dropdown_checkBox.js'
 import Example from './components/Dropdown_checkBox';
@@ -29,6 +29,9 @@ import DropDown_issueType from './components/Dropdown_checkBox.js';
 
 import './components/Map.js'
 import Map from './components/Map'
+
+import './components/CustomMarker.js'
+import CustomMarker from './components/CustomMarker'
 
 // import './components/CustomMarker'
 // import CustomMarker from './components/CustomMarker'
@@ -109,10 +112,10 @@ function App() {
         <DropDown_issueType></DropDown_issueType>
         {/* <Dropdown_checkBox></Dropdown_checkBox> */}
         <SliderPage></SliderPage>
+        {/* <img src={require('./components/mapbox-marker-icon-blue.svg').default}/> */}
         {/* <Example></Example> */}
       </div>
       <div className="Map">
-      {/* <div ref={mapContainer} className="map-container" /> */}
       <Map></Map>
       {/* <CustomMarker></CustomMarker> */}
       </div>
