@@ -14,7 +14,12 @@ import React from "react";
 // export default SearchPage;
 
 
-const charactersList = document.getElementById('charactersList');
+
+
+
+export default function Searchbar(){
+
+    const charactersList = document.getElementById('charactersList');
 const searchBar = document.getElementById('searchBar');
 let hpCharacters = [];
 
@@ -32,7 +37,7 @@ searchBar.addEventListener('keyup', (e) => {
 
 const loadCharacters = async () => {
     try {
-        const res = await fetch('https://hp-api.herokuapp.com/api/characters');
+        const res = await fetch('https://hp-api.herokuapp.com/api/characters'); // this is the json file 
         hpCharacters = await res.json();
         displayCharacters(hpCharacters);
     } catch (err) {
@@ -58,9 +63,6 @@ const displayCharacters = (characters) => {
 loadCharacters();
 
 
-
-
-export default function Searchbar(){
     return(
         <form className = "form" action="/" method="get">
         <label htmlFor="header-search">
@@ -71,8 +73,6 @@ export default function Searchbar(){
             id="header-search"
             placeholder="Search social events"
             name="s" 
-            // value={searchQuery}
-            // onInput={e => setSearchQuery(e.target.value)}
         />
         <button type="submit">Search</button> 
         </form>
