@@ -33,6 +33,11 @@ import Map from './components/Map'
 import './components/CustomMarker.js'
 import CustomMarker from './components/CustomMarker'
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import './components/sideBar.js'
+import Sidebar from './components/sideBar'
+
 // import './components/CustomMarker'
 // import CustomMarker from './components/CustomMarker'
 mapboxgl.accessToken = 'pk.eyJ1IjoidHphbGl5YSIsImEiOiJja3VuMncxd3QzeHI3MnZtbmZyOTE0Z2RhIn0.wXgglO-cXtCIq-QJ17Jv-g';
@@ -47,60 +52,6 @@ function App() {
   const [zoom, setZoom] = useState(15.48);
 
 
-  // const TOKEN='pk.eyJ1IjoidHphbGl5YSIsImEiOiJja3VuMncxd3QzeHI3MnZtbmZyOTE0Z2RhIn0.wXgglO-cXtCIq-QJ17Jv-g';
-
-  // const geolocateStyle = {
-  //   float: 'left',
-  //   margin: '50px',
-  //   padding: '10px'
-  // };
-
-  // const Map = () => {
-
-  // const [viewport, setViewPort ] = useState({
-  //   width: "100%",
-  //   height: 900,
-  //   latitude: 0,
-  //   longitude: 0,
-  //   zoom: 2
-  // })
-
-  // const _onViewportChange = viewport => setViewPort({...viewport, transitionDuration: 3000 })
-
-  // useEffect(() => {
-  //   if (map.current) return; // initialize map only once
-  //   map.current = new mapboxgl.Map({
-  //   container: mapContainer.current,
-  //   style: 'mapbox://styles/mapbox/streets-v11',
-  //   center: [lng, lat],
-  //   zoom: zoom
-  //   });
-  //   });
-
-    // useEffect(() => {
-    //   if (!map.current) return; // wait for map to initialize
-    //   map.current.on('move', () => {
-    //   setLng(map.current.getCenter().lng.toFixed(4));
-    //   setLat(map.current.getCenter().lat.toFixed(4));
-    //   setZoom(map.current.getZoom().toFixed(2));
-    //   });
-    //   });
-  
-  // geojson.features.map((features) =>
-  //     new mapboxgl.Marker().setLngLat(features.geometry.coordinates).addTo(map)
-  // );
-  // addControl(
-  //   new mapboxgl.GeolocateControl({
-  //   positionOptions: {
-  //   enableHighAccuracy: true
-  //   },
-  //   // When active the map will receive updates to the device's location as it changes.
-  //   trackUserLocation: true,
-  //   // Draw an arrow next to the location dot to indicate which direction the device is heading.
-  //   showUserHeading: true
-  //   })
-  //   );
-
   return (
     <div className="App">
 
@@ -110,14 +61,20 @@ function App() {
         <Searchbar ></Searchbar>
         <DropDown_typeOfActivism></DropDown_typeOfActivism>
         <DropDown_issueType></DropDown_issueType>
-        {/* <Dropdown_checkBox></Dropdown_checkBox> */}
         <SliderPage></SliderPage>
-        {/* <img src={require('./components/mapbox-marker-icon-blue.svg').default}/> */}
-        {/* <Example></Example> */}
       </div>
-      <div className="Map">
-      <Map></Map>
-      {/* <CustomMarker></CustomMarker> */}
+
+      <div className="body">
+        <div className="sideBarContainer">
+        <Router>
+          <div className="sideBar">
+            <Sidebar></Sidebar>
+          </div>
+        </Router>
+        </div>
+        <div className="Map">
+          <Map></Map>
+        </div>
       </div>
       
 
