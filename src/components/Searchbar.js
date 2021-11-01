@@ -1,4 +1,5 @@
 import React from "react";
+ 
 
 // const SearchPage = () => {
 //   return (
@@ -19,7 +20,8 @@ import React from "react";
 
 export default function Searchbar(){
 
-    const charactersList = document.getElementById('charactersList');
+
+const charactersList = document.getElementById('charactersList');
 const searchBar = document.getElementById('searchBar');
 let hpCharacters = [];
 
@@ -64,17 +66,14 @@ loadCharacters();
 
 
     return(
+
+        
         <form className = "form" action="/" method="get">
         <label htmlFor="header-search">
+            
             <span className="visually-hidden">Search blog posts</span>
         </label>
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Search social events"
-            name="s" 
-        />
-        <button type="submit">Search</button> 
+        
         </form>
 
 
