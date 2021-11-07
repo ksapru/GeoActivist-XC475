@@ -8,43 +8,27 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import {Link} from 'react-router-dom';
 
 
 export default function navbar() {
     return (
         <div>
-           <Navbar variant="dark" bg="dark" expand="lg">
-  <Container fluid>
-    <Navbar.Brand href="#home"> GeoActivist </Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbar-dark-example" />
-    <Navbar.Collapse id="navbar-dark-example">
-
-    <Nav>
-        <NavDropdown
-          id="nav-dropdown-dark-example"
-          title="Learn More"
-          menuVariant="dark"
-        >
-          <NavDropdown.Item href="#action/3.1"> Events </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2"> Types of Activism </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3"> </NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-
-      <Nav>
-        <NavDropdown
-          id="nav-dropdown-dark-example"
-          title="Get Involved"
-          menuVariant="dark"
-        >
-          <NavDropdown.Item href="#action/3.4">Activists near me</NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
- 
-            
+          <Navbar bg="light" variant="light" style={{justifyContent:'space-between'}}
+          >
+              <Container>
+                <Navbar.Brand href="#home">GeoActivist</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/map">Map</Nav.Link>
+                    <Nav.Link href="#link">About</Nav.Link>
+                    <Nav.Link href="#link">Sign In</Nav.Link>
+                  </Nav>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
         </div>
     )
 }
