@@ -56,6 +56,7 @@ import {
 
 import HomePage from './components/homePage';
 import MapPage from './components/mapPage';
+import SignPage from './components/signInForm';
 
 
 
@@ -100,6 +101,8 @@ function App() {
       <Switch>
       <Route exact path="/" component={HomePage} />
       <Route exact path="/map" component={MapPage} />
+      <Route eact path='/sign' component={SignPage}/>
+      {/* <Route exact path="/si" */}
       </Switch>
     </Router>
   );

@@ -24,7 +24,7 @@ export default function navbar() {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/map">Map</Nav.Link>
                     <Nav.Link href="#link">About</Nav.Link>
-                    <Nav.Link href="#link">Sign In</Nav.Link>
+                    <Nav.Link href="/sign">Sign In</Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
               </Container>
